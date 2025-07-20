@@ -27,14 +27,7 @@ function App() {
   const [activeTab, setActiveTab] = useState('details');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [dark, setDark] = useState(
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('dark', dark);
-  }, [dark]);
-
+ 
   const fetchVideo = useCallback(async () => {
     if (!videoId.trim()) return;
     setLoading(true);
@@ -65,14 +58,7 @@ function App() {
         <header className="mb-10 flex items-center justify-between">
           <h1 className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-4xl font-extrabold text-transparent">
             YouTube Companion
-          </h1>
-          <button
-            onClick={() => setDark(!dark)}
-            className="rounded-full p-2 text-slate-600 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-700"
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
+          </h1> 
         </header>
 
         <div className="group relative mb-8">
